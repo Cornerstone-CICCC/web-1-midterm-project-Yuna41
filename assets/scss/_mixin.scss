@@ -1,3 +1,5 @@
+@use "sass:meta";
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
 // color
@@ -13,7 +15,7 @@ $sp: 768px;
 $pc: 769px;
 
 @mixin mq($breakpoint: sp) {
-  @if type-of($breakpoint) == string {
+  @if meta.type-of($breakpoint) == string {
     @if $breakpoint == sp {
       $breakpoint: $sp;
       @media (max-width: $breakpoint) {
@@ -25,7 +27,7 @@ $pc: 769px;
         @content;
       }
     }
-  } @else if type-of($breakpoint) == number {
+  } @else if meta.type-of($breakpoint) == number {
     @media (max-width: $breakpoint) {
       @content;
     }
@@ -37,8 +39,13 @@ $font-nunito: "Nunito Sans", sans-serif;
 
 // inner
 @mixin inner{
+  width: calc(100% - 40px);
   max-width: 920px;
   padding: 0 20px;
   margin: 0 auto;
+  @include mq{
+    width: 100%;
+    padding: 0 30px;
+  }
 }
 
