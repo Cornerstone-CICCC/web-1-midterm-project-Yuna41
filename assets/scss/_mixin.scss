@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+// color
+$main-color: #982B1C;
+$sub-color: #1B4D3E;
+$key-color: #DAD4B5;
+$txt-color: #212121; 
+$bg-color01: #F5F3E680;
+$bg-color02: #F5F5F5;
+
+// breakpoint
+$sp: 768px;
+$pc: 769px;
+
+@mixin mq($breakpoint: sp) {
+  @if type-of($breakpoint) == string {
+    @if $breakpoint == sp {
+      $breakpoint: $sp;
+      @media (max-width: $breakpoint) {
+        @content;
+      }
+    } @else if $breakpoint == pc {
+      $breakpoint: $pc;
+      @media (min-width: $breakpoint) {
+        @content;
+      }
+    }
+  } @else if type-of($breakpoint) == number {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// font
+$font-nunito: "Nunito Sans", sans-serif;
+
+// inner
+@mixin inner{
+  max-width: 920px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+

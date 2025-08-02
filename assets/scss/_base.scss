@@ -1,0 +1,7 @@
+@use './mixin';
+
+body{
+  font-family: mixin.$font-nunito;
+  font-size: 10px;
+  font-weight: 500;
+}
