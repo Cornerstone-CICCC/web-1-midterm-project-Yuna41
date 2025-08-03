@@ -195,11 +195,11 @@
               transition: .3s ease;
               @include mixin.mq{
                 background: mixin.$main-color;
-                color: #fff;
+                color: mixin.$white;
               }
               &:hover{
                 background: mixin.$main-color;
-                color: #fff;
+                color: mixin.$white;
               }
             }
           }
@@ -227,7 +227,7 @@
       }
       li{
         font-size: 1.4rem;
-        background: #fff;
+        background: mixin.$white;
         border-radius: 20px;
         padding: 8px 20px;
         @include mixin.mq{

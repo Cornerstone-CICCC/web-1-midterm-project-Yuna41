@@ -7,7 +7,7 @@
     position: fixed;
     top: 0;
     left: -100vw;
-    background: #fff;
+    background: mixin.$white;
     z-index: 5;
     transition: .3s ease;
   }
@@ -101,7 +101,7 @@
       +.header{
         &-spBtn{
           span{
-            background: #fff;
+            background: mixin.$white;
             &:before{
               top: 7px;
               transform: rotate(225deg);
