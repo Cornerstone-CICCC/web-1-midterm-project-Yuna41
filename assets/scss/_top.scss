@@ -2,7 +2,10 @@
 
 .top{
   &-mainv{
-    height: calc(100vh - 80px);
+    height: calc(100vh - 100px);
+    @include mixin.mq(tab){
+      height: 100vh;
+    }
     .inner{
       height: 100%;
       position: relative;
@@ -262,6 +265,7 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 16px;
+        gap: 40px;
         @include mixin.mq{
           flex-direction: column;
           gap: 8px;
@@ -278,11 +282,14 @@
         font-size: 1.4rem;
         @include mixin.mq(pc){
           line-height: 1.8;
+          min-width: 82px;
         }
         span{
-          display: inline-block;
-          padding: 4px 8px;
-          background: mixin.$bg-color02;
+          @include mixin.mq{
+            display: inline-block;
+            padding: 4px 8px;
+            background: mixin.$bg-color02;
+          }
         }
       }
     }
@@ -317,6 +324,7 @@
       @include mixin.mq{
         margin-top: 20px;
         flex-direction: column;
+        gap: 10px;
       }
       li{
         display: flex;
@@ -342,7 +350,7 @@
           transition: .3s ease;
           color: mixin.$txt-color;
           @include mixin.mq{
-            font-size: 1.8rem;
+            font-size: 1.6rem;
           }
           &:hover{
             color: mixin.$main-color;

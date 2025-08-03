@@ -13,6 +13,7 @@ $bg-color02: #F5F5F5;
 // breakpoint
 $sp: 768px;
 $pc: 769px;
+$tab: 600px;
 
 @mixin mq($breakpoint: sp) {
   @if meta.type-of($breakpoint) == string {
@@ -26,10 +27,11 @@ $pc: 769px;
       @media (min-width: $breakpoint) {
         @content;
       }
-    }
-  } @else if meta.type-of($breakpoint) == number {
-    @media (max-width: $breakpoint) {
-      @content;
+    } @else if $breakpoint == tab {
+      $breakpoint: $tab;
+      @media (max-width: $breakpoint) {
+        @content;
+      }
     }
   }
 }
