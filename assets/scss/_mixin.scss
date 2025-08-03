@@ -9,10 +9,12 @@ $key-color: #DAD4B5;
 $txt-color: #212121; 
 $bg-color01: #F5F3E680;
 $bg-color02: #F5F5F5;
+$white: #fff;
 
 // breakpoint
 $sp: 768px;
 $pc: 769px;
+$tab: 600px;
 
 @mixin mq($breakpoint: sp) {
   @if meta.type-of($breakpoint) == string {
@@ -26,10 +28,11 @@ $pc: 769px;
       @media (min-width: $breakpoint) {
         @content;
       }
-    }
-  } @else if meta.type-of($breakpoint) == number {
-    @media (max-width: $breakpoint) {
-      @content;
+    } @else if $breakpoint == tab {
+      $breakpoint: $tab;
+      @media (max-width: $breakpoint) {
+        @content;
+      }
     }
   }
 }
