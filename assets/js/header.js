@@ -2,14 +2,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const body = document.querySelector('body')
   const header = document.querySelector('.header')
   const headerspBtn = document.querySelector('.header-spBtn')
+  const headerMenu = document.querySelectorAll('.header-menu a')
   headerspBtn.addEventListener('click', () => {
-    header.classList.toggle('open')
+    // header.classList.toggle('open')
     if(header.classList.contains('open')){
-      console.log('header open')
-      body.style.overflow = 'hidden'
+      header.classList.remove('open')
+      body.style.removeProperty('overflow')
     } else {
-      console.log('header closed')
-      body.style.removeProperty('overflow');
+      header.classList.add('open')
+      body.style.overflow = 'hidden'
     }
+  })
+  headerMenu.forEach((item) => {
+    item.addEventListener('click', ()=> {
+      header.classList.remove('open')
+      body.style.removeProperty('overflow')
+    })
   })
 })
